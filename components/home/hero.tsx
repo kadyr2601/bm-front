@@ -1,8 +1,9 @@
 "use client"
 
-import {motion} from "framer-motion"
-import {useState, useEffect} from "react"
+import { motion } from "framer-motion"
+import { useState, useEffect } from "react"
 import Image from "next/image"
+import { ArrowRight, TrendingUp, Award, Users } from "lucide-react"
 
 function useCounter(end: number, duration = 2000, start = 0) {
     const [count, setCount] = useState(start)
@@ -48,100 +49,111 @@ export default function Hero() {
     }
 
     return (
-        <div className="container mx-auto px-4 py-8">
-            <motion.div
-                initial={{opacity: 0, y: 20}}
-                animate={{opacity: 1, y: 0}}
-                transition={{duration: 0.6}}
-                className="relative overflow-hidden rounded-3xl min-h-[500px] sm:min-h-[600px] flex flex-col justify-center"
-            >
-                <div className="absolute inset-0 z-0">
-                    <Image
-                        src="/dubai.webp"
-                        alt="Dubai Luxury Real Estate"
-                        fill
-                        className="object-cover"
-                    />
-                    {/* Dark gradient overlay for text readability */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60"/>
-                </div>
-
-                <div className="relative z-10 px-8 sm:px-12 lg:px-16 py-16 sm:py-20">
-                    <motion.h1
-                        initial={{opacity: 0, y: 20}}
-                        animate={{opacity: 1, y: 0}}
-                        transition={{duration: 0.5, delay: 0.1}}
-                        className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 max-w-3xl text-balance leading-tight"
+        <div className="relative overflow-hidden  to-muted/20">
+            <div className="container mx-auto px-4 py-16 lg:py-24">
+                <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                    <motion.div
+                        initial={{ opacity: 0, x: -30 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.7 }}
+                        className="space-y-6"
                     >
-                        37 Years of Unmatched Real Estate Expertise in Dubai
-                    </motion.h1>
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
+                            <Award className="w-4 h-4 text-primary" />
+                            <span className="text-sm font-medium text-primary">37 Years of Excellence</span>
+                        </div>
 
-                    <motion.p
-                        initial={{opacity: 0, y: 20}}
-                        animate={{opacity: 1, y: 0}}
-                        transition={{duration: 0.5, delay: 0.2}}
-                        className="text-lg sm:text-xl text-white/90 mb-8 max-w-2xl"
-                    >
-                        Guiding you through Dubai's luxury property market with integrity and precision.
-                    </motion.p>
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
+                            Discover Your
+                            <span className="block text-primary mt-2">Dream Property</span>
+                            <span className="block text-2xl md:text-3xl lg:text-4xl font-normal text-muted-foreground mt-3">
+                in Dubai's Premier Locations
+              </span>
+                        </h1>
+
+                        <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
+                            Transform your vision into reality with personalized service and unmatched market expertise. We guide you
+                            through every step of your real estate journey.
+                        </p>
+
+                        <div className="flex flex-wrap gap-4 pt-4">
+                            <a
+                                href="https://wa.me/971528667010?text=Hi%2C%20I%27d%20like%20to%20schedule%20a%20consultation"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="group inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-medium px-6 py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+                            >
+                                Schedule Consultation
+                                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                            </a>
+                        </div>
+
+                        <div className="grid grid-cols-3 gap-6 pt-8 border-t border-border">
+                            <div className="space-y-1">
+                                <div className="text-2xl font-bold text-foreground">{propertiesCount.toLocaleString()}+</div>
+                                <div className="text-xs text-muted-foreground">Properties Listed</div>
+                            </div>
+                            <div className="space-y-1">
+                                <div className="text-2xl font-bold text-foreground">{clientsCount}+</div>
+                                <div className="text-xs text-muted-foreground">Happy Clients</div>
+                            </div>
+                            <div className="space-y-1">
+                                <div className="text-2xl font-bold text-foreground">${salesCount}B+</div>
+                                <div className="text-xs text-muted-foreground">Sales Volume</div>
+                            </div>
+                        </div>
+                    </motion.div>
 
                     <motion.div
-                        initial={{opacity: 0, y: 20}}
-                        animate={{opacity: 1, y: 0}}
-                        transition={{duration: 0.5, delay: 0.3}}
+                        initial={{ opacity: 0, x: 30 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.7, delay: 0.2 }}
+                        className="relative h-[500px] lg:h-[600px]"
                     >
-                        <a
-                            href="#contact"
-                            className="inline-block bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-8 py-4 rounded-lg transition-colors duration-200"
+                        <div className="absolute inset-0 rounded-2xl overflow-hidden shadow-2xl">
+                            <Image src="/dubai.webp" alt="Dubai Luxury Real Estate" fill className="object-cover" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                        </div>
+
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.5 }}
+                            className="absolute top-8 right-8 bg-card/95 backdrop-blur-sm border border-border rounded-xl p-4 shadow-xl"
                         >
-                            Schedule Your Consultation
-                        </a>
+                            <div className="flex items-center gap-3">
+                                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                                    <TrendingUp className="w-5 h-5 text-primary" />
+                                </div>
+                                <div>
+                                    <div className="text-xs text-muted-foreground">Market Growth</div>
+                                    <div className="text-lg font-bold text-foreground">+24%</div>
+                                </div>
+                            </div>
+                        </motion.div>
+
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.7 }}
+                            className="absolute bottom-8 left-8 bg-card/95 backdrop-blur-sm border border-border rounded-xl p-4 shadow-xl"
+                        >
+                            <div className="flex items-center gap-3">
+                                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                                    <Users className="w-5 h-5 text-primary" />
+                                </div>
+                                <div>
+                                    <div className="text-xs text-muted-foreground">Client Satisfaction</div>
+                                    <div className="text-lg font-bold text-foreground">98%</div>
+                                </div>
+                            </div>
+                        </motion.div>
                     </motion.div>
                 </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-                initial={{opacity: 0, y: 30}}
-                animate={{opacity: 1, y: 0}}
-                transition={{duration: 0.6, delay: 0.4}}
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8"
-            >
-                <div
-                    className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors duration-300">
-                    <div className="text-sm text-gray-400 mb-2">Experience</div>
-                    <div className="text-4xl font-bold text-white">
-                        {experienceCount}
-                        <span className="text-primary">+</span> Years
-                    </div>
-                </div>
-
-                <div
-                    className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors duration-300">
-                    <div className="text-sm text-gray-400 mb-2">Properties Sold</div>
-                    <div className="text-4xl font-bold text-white">
-                        {propertiesCount.toLocaleString()}
-                        <span className="text-primary">+</span>
-                    </div>
-                </div>
-
-                <div
-                    className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors duration-300">
-                    <div className="text-sm text-gray-400 mb-2">Satisfied Clients</div>
-                    <div className="text-4xl font-bold text-white">
-                        {clientsCount}
-                        <span className="text-primary">+</span>
-                    </div>
-                </div>
-
-                <div
-                    className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors duration-300">
-                    <div className="text-sm text-gray-400 mb-2">Total Sales</div>
-                    <div className="text-4xl font-bold text-white">
-                        <span className="text-primary">$</span>
-                        {salesCount} Billion<span className="text-primary">+</span>
-                    </div>
-                </div>
-            </motion.div>
+            <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -z-10" />
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -z-10" />
         </div>
     )
 }
