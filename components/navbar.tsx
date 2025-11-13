@@ -54,7 +54,7 @@ const Navbar = () => {
                     </Link>
                 </nav>
                 <Link className="z-50 transition-all duration-300 hover:scale-105" href="/">
-                    <Image src="/logo.png" alt="Logo" width={170} height={180} className={'object-cover'}/>
+                    <Image src="/logo.png" alt="Logo" width={120} height={80} className={'object-cover'}/>
                 </Link>
                 <div
                     className="flex items-center gap-1.5 px-2 py-1.5 rounded-full bg-accent/30 border border-border/30">
@@ -143,7 +143,7 @@ const Navbar = () => {
                         className="flex items-center justify-center gap-2 hover:scale-105 transition-transform duration-300"
                         href="/"
                     >
-                        <Image src="/logo.png" alt="Logo" width={150} height={140} className={'object-cover'}/>
+                        <Image src="/logo.png" alt="Logo" width={100} height={60} className={'object-cover'}/>
                     </Link>
 
                     <button
